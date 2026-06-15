@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRON HAVEN | Premium Fitness Collective</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #CCFF00; /* Electric Lime */
+            --bg-dark: #0A0A0A;
+            --bg-card: #141414;
+            --text-light: #FFFFFF;
+            --text-dim: #A0A0A0;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Syne', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- Header --- */
+        header {
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .logo span { color: var(--primary); }
+
+        .nav-links { display: none; }
+
+        @media (min-width: 768px) {
+            .nav-links { display: flex; gap: 40px; }
+            .nav-links a {
+                color: var(--text-light);
+                text-decoration: none;
+                font-weight: 500;
+                font-size: 0.9rem;
+                transition: var(--transition);
+            }
+            .nav-links a:hover { color: var(--primary); }
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 80px;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3.5rem, 10vw, 6rem);
+            line-height: 0.9;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 18px 36px;
+            background: var(--primary);
+            color: black;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 4px;
+            transition: var(--transition);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(204, 255, 0, 0.3);
+        }
+
+        /* --- Doodles --- */
+        .doodle {
+            position: absolute;
+            z-index: 1;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .doodle-1 { top: 20%; right: 5%; width: 150px; transform: rotate(15deg); }
+        .doodle-2 { bottom: 10%; left: 5%; width: 100px; }
+
+        /* --- Services --- */
+        .services {
+            padding: 100px 0;
+            background: var(--bg-dark);
+        }
+
+        .section-tag {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 60px;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 12px;
+            transition: var(--transition);
+            border: 1px solid transparent;
+            position: relative;
+        }
+
+        .service-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-10px);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .service-card p {
+            color: var(--text-dim);
+            margin-bottom: 24px;
+        }
+
+        /* --- CTA Section --- */
+        .cta-section {
+            padding: 120px 0;
+            text-align: center;
+            background: linear-gradient(to bottom, var(--bg-dark), #1a1a1a);
+        }
+
+        .cta-box {
+            background: var(--primary);
+            color: black;
+            padding: 80px 40px;
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box h2 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            margin-bottom: 24px;
+        }
+
+        .btn-dark {
+            background: black;
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section-title { font-size: 2.2rem; }
+            .cta-box { padding: 60px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <div class="logo">IRON<span>HAVEN</span></div>
+            <nav class="nav-links">
+                <a href="#">Membership</a>
+                <a href="#">Programs</a>
+                <a href="#">Coaches</a>
+                <a href="#">Contact</a>
+            </nav>
+            <a href="#" class="btn" style="padding: 10px 20px; font-size: 0.8rem;">Join Now</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <!-- SVG Doodle 1 -->
+        <svg class="doodle doodle-1" viewBox="0 0 100 100" stroke="#CCFF00" fill="none" stroke-width="2">
+            <path d="M10,50 Q40,10 70,50 T130,50" stroke-dasharray="5,5"/>
+            <circle cx="70" cy="50" r="5" fill="#CCFF00"/>
+        </svg>
+
+        <div class="container">
+            <div class="hero-content">
+                <span class="section-tag">ESTABLISHED 2024</span>
+                <h1>UNLEASH<br>YOUR <span style="color: var(--primary); -webkit-text-stroke: 1px var(--primary); -webkit-text-fill-color: transparent;">POTENTIAL</span></h1>
+                <p>Premium coaching, state-of-the-art equipment, and a community built to push you further than ever before.</p>
+                <div class="hero-btns">
+                    <a href="#" class="btn">Start 7-Day Trial</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Background Decor -->
+        <div style="position: absolute; right: -10%; top: 20%; font-size: 15vw; font-family: 'Syne'; opacity: 0.03; font-weight: 900; white-space: nowrap;">WORK HARD</div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <span class="section-tag">WHAT WE OFFER</span>
+            <h2 class="section-title">CHOOSE YOUR <br>DISCIPLINE</h2>
+            
+            <div class="service-grid">
+                <div class="service-card">
+                    <div style="font-size: 2rem; margin-bottom: 20px;">⚡</div>
+                    <h3>Performance Coaching</h3>
+                    <p>One-on-one sessions tailored to your biological profile and athletic goals.</p>
+                    <a href="#" style="color: var(--primary); text-decoration: none; font-weight: 700; font-size: 0.8rem;">EXPLORE →</a>
+                </div>
+
+                <div class="service-card">
+                    <div style="font-size: 2rem; margin-bottom: 20px;">🔥</div>
+                    <h3>Group Intensity</h3>
+                    <p>High-octane classes designed to torch calories and build functional strength.</p>
+                    <a href="#" style="color: var(--primary); text-decoration: none; font-weight: 700; font-size: 0.8rem;">EXPLORE →</a>
+                </div>
+
+                <div class="service-card">
+                    <div style="font-size: 2rem; margin-bottom: 20px;">🥗</div>
+                    <h3>Nutrition Lab</h3>
+                    <p>Custom fuel plans and biometric tracking to optimize your recovery and growth.</p>
+                    <a href="#" style="color: var(--primary); text-decoration: none; font-weight: 700; font-size: 0.8rem;">EXPLORE →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <!-- SVG Doodle 2 -->
+                <svg style="position: absolute; left: 20px; top: 20px; width: 60px; opacity: 0.3;" viewBox="0 0 100 100">
+                    <path d="M10,10 L90,90 M90,10 L10,90" stroke="black" stroke-width="8"/>
+                </svg>
+                
+                <h2>READY TO START?</h2>
+                <p style="margin-bottom: 32px; font-weight: 600;">Join 500+ members crushing their goals today.</p>
+                <a href="#" class="btn btn-dark">Claim Your Founding Membership</a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="padding: 40px 0; text-align: center; border-top: 1px solid #222;">
+        <div class="container">
+            <p style="color: var(--text-dim); font-size: 0.8rem;">&copy; 2024 IRON HAVEN FITNESS. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
